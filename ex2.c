@@ -158,7 +158,7 @@ int main() {
 
 			case 6:
 				int smile, cheer, max, check;
-				check = smile = chher = 0;
+				check = smile = cheer = 0;
 			   	printf("Enter a smile and cheer number:\n");
 		                check = scanf("\nsmile: %d , cheer: %d", &smile, &cheer);
 		                while (check != 2 || smile == cheer)
