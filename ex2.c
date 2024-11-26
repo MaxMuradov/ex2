@@ -184,7 +184,7 @@ int main() {
 						printf("Festival!\n");
 					}
 					else if (i % smile == 0) {
-						printf("Smile\n");
+						printf("Smile!\n");
 					}
 					else if (i % cheer == 0) {
 						printf("Cheer!\n");
