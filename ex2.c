@@ -151,13 +151,20 @@ int main() {
 
 			case 6:
 				int smile, cheer, max;
-				printf("Enter a number: \n");
-				int check = scanf("smile: %d, cheer: %d",&smile,&cheer);
-				//scanf(" smile: %d, cheer: %d", &smile, &cheer);
-				while (check != 2){
-					scanf("%*[^\n]%*c");
-					printf("Only 2 different positive numbers in the given format are allowed for the festival, please try again:\n");
-				}
+				    printf("Enter a smile and cheer number:\n");
+				    int check;
+				    do {
+				        char input[128];
+				        fgets(input, sizeof(input), stdin); // Read full line including spaces
+				        check = sscanf(input, "smile: %d, cheer: %d", &smile, &cheer);
+				
+				        if (check != 2 || smile <= 0 || cheer <= 0) {
+				            printf("Only 2 different positive numbers in the given format are allowed for the festival, please try again:\n");
+				        }
+				    } while (check != 2 || smile <= 0 || cheer <= 0);
+				
+
+				
 				printf("Enter maximum number for the festival:\n");
 				scanf("%d", &max);
 				while (max <= 0) {
@@ -166,14 +173,14 @@ int main() {
 				}
 
 				for (int i = 1; i <= max; i++ ) {
-					if (i % smile == 0) {
+					if (i % cheer == 0 && i % smile == 0){
+						printf("Festival\n");
+					}
+					else if (i % smile == 0) {
 						printf("smile\n");
 					}
 					else if (i % cheer == 0) {
 						printf("cheer\n");
-					}
-					else if (i % cheer == 0 && i % smile == 0){
-						printf("Festival\n");
 					}
 					else {
 						printf("%d\n", i);
