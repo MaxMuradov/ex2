@@ -76,7 +76,7 @@ int main() {
 						num /= 10;
 					}
 
-					if (sum == 0)
+					if (sum == 0 || i == 1)
 						printf("This number is balanced and brings harmony!\n");
 					else
 						printf("This number isn't balanced and destroys harmony.\n");
@@ -168,19 +168,19 @@ int main() {
 				printf("Enter maximum number for the festival:\n");
 				scanf("%d", &max);
 				while (max <= 0) {
-					printf("Only positive number is allowed, please try again:\n");
+					printf("Only positive maximum number is allowed, please try again:\n");
 					scanf("%d", &max);
 				}
 
 				for (int i = 1; i <= max; i++ ) {
 					if (i % cheer == 0 && i % smile == 0){
-						printf("Festival\n");
+						printf("Festival!\n");
 					}
 					else if (i % smile == 0) {
-						printf("smile\n");
+						printf("Smile\n");
 					}
 					else if (i % cheer == 0) {
-						printf("cheer\n");
+						printf("Cheer!\n");
 					}
 					else {
 						printf("%d\n", i);
