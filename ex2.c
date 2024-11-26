@@ -153,7 +153,7 @@ int main() {
 				int smile, cheer, max;
 				int check = scanf("smile: %d, cheer: %d",&smile,&cheer);
 				while (check != 2 && smile <= 0 && cheer <= 0){
-					scanf("%[^\n]*с");
+					scanf("%*[^\n]%*с");
 					printf("Only 2 different positive numbers in the given format are allowed for the festival, please try again:\n");
 				}
 				printf("Enter maximum number for the festival:\n");
