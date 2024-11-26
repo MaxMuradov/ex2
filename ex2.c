@@ -157,19 +157,17 @@ int main() {
 			break;
 
 			case 6:
-				int smile, cheer, max;
-				    printf("Enter a smile and cheer number:\n");
-				    int check;
-				    do {
-				        char input[128];
-				        fgets(input, sizeof(input), stdin); // Read full line including spaces
-				        check = sscanf(input, "smile: %d, cheer: %d", &smile, &cheer);
-				
-				        if (check != 2 || smile <= 0 || cheer <= 0) {
-				            printf("Only 2 different positive numbers in the given format are allowed for the festival, please try again:\n");
-				        }
-				    } while (check != 2 || smile <= 0 || cheer <= 0);
-				
+				int smile, cheer, max, check;
+				check = smile = chher = 0;
+			   	printf("Enter a smile and cheer number:\n");
+		                check = scanf("\nsmile: %d , cheer: %d", &smile, &cheer);
+		                while (check != 2 || smile == cheer)
+		                {
+		                    scanf("%*[^\n]%*c");
+		                    printf("Only 2 different positive numbers in the given format are allowed for the festival, please try again:\n");
+		                    check = scanf("\nsmile: %d , cheer: %d", &smile, &cheer);
+		                }
+
 
 				
 				printf("Enter maximum number for the festival:\n");
