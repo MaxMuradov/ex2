@@ -71,10 +71,9 @@ int main() {
 					for (int j = i; j > 0; j--) {
 						if (j > i / 2)
 							sum += num % 10;
-						else {
+						else 
 							sum -= num % 10;
-							num /= 10;
-						}
+						num /= 10;
 					}
 
 					if (sum == 0)
