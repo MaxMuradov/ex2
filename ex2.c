@@ -109,9 +109,16 @@ int main() {
 					printf("Only positive number is allowed, please try again:\n");
 					scanf("%d", &num);
 				}
+				int reverse = 0;
+				clone = num;
+				while (clone > 0){
+					reverse *= 10;
+					reverse += clone % 10;
+					clone /= 10;
+				}
 
 				for (int i = 2; i < num/2; i++) {
-					if ( num % i == 0) {
+					if ( num % i == 0 || reverse % i == 0) {
 						prime += 1;
 						break;
 					}
