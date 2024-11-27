@@ -3,6 +3,10 @@ Name: Maxim Muradov
 ID: 346975386
 Assignment: ex2
 *******************/
+#define ZERO 0
+#define PARITY 2
+#define BASE 10
+#define UNHAPPYLOOP 4
 
 #include <stdio.h>
 
@@ -28,7 +32,7 @@ int main() {
 				printf("Enter face size: \n");
 				scanf("%d", &face_size);
 
-				while((face_size <= 0) || (face_size % 2 == 0)) {
+				while((face_size <= ZERO) || (face_size % PARITY == ZERO)) {
 					printf("The face's size must be an odd and positive number, please try again:\n");
 					scanf(" %d", &face_size);
 				}
@@ -57,7 +61,7 @@ int main() {
 				sum = 0;
 				printf("Enter a number: \n");
 				scanf("%d", &num);
-				while (num <= 0) {
+				while (num <= ZERO) {
 					printf("Only positive number is allowed, please try again:\n");
 					scanf("%d", &num);
 				}
@@ -65,18 +69,18 @@ int main() {
 
 				int clone = num;
 				for (i = 0; clone > 0; i++) {
-						clone /= 10;
+						clone /= BASE;
 				}
 
 					for (int j = i; j > 0; j--) {
 						if (j > i / 2)
-							sum += num % 10;
+							sum += num % BASE;
 						else 
-							sum -= num % 10;
-						num /= 10;
+							sum -= num % BASE;
+						num /= BASE;
 					}
 
-					if (sum == 0 || i == 1)
+					if (sum == ZERO || i == 1)
 						printf("This number is balanced and brings harmony!\n");
 					else
 						printf("This number isn't balanced and destroys harmony.\n");
@@ -87,12 +91,12 @@ int main() {
 				sum = 0;
 				printf("Enter a number: \n");
 				scanf("%d", &num);
-				while(num <= 0) {
+				while(num <= ZERO) {
 					printf("Only positive number is allowed, please try again:\n");
 					scanf("%d", &num);
 				}
 				for (int i = 1; i < num; i++ ) {
-					if (num % i == 0)
+					if (num % i == ZERO)
 						sum += i;
 				}
 				if (sum > num)
@@ -105,35 +109,35 @@ int main() {
 				prime = 0;
 				printf("Enter a number: \n");
 				scanf("%d", &num);
-				while (num <= 0) {
+				while (num <= ZERO) {
 					printf("Only positive number is allowed, please try again:\n");
 					scanf("%d", &num);
 				}
 				int reverse = 0;
 				clone = num;
 				while (clone > 0){
-					reverse *= 10;
-					reverse += clone % 10;
-					clone /= 10;
+					reverse *= BASE;
+					reverse += clone % BASE;
+					clone /= BASE;
 				}
 
 				for (int i = 2; i < num/2; i++) {
-					if ( num % i == 0 || reverse % i == 0) {
+					if ( num % i == ZERO || reverse % i == ZERO) {
 						prime += 1;
 						break;
 					}
 				}
 
-				if (prime == 0)
+				if (prime == ZERO)
 					printf("This number completes the circle of joy!\n");
-				else if ((prime > 0) || (num == 1))
+				else if ((prime > ZERO) || (num == 1))
 					printf("The circle remains incomplete.\n");
 			break;
 
 			case 5:
 				printf("Enter a number: \n");
 				scanf("%d", &num);
-				while (num <= 0) {
+				while (num <= ZERO) {
 					printf("Only positive number is allowed, please try again:\n");
 					scanf("%d", &num);
 				}
@@ -144,10 +148,10 @@ int main() {
 					do {
 						chain_num = sum;
 						sum = 0;
-						for ( ; chain_num > 0 ; chain_num /= 10) {
-							sum += (chain_num % 10) * (chain_num % 10);
+						for ( ; chain_num > 0 ; chain_num /= BASE) {
+							sum += (chain_num % BASE) * (chain_num % BASE);
 						}
-					} while (sum != 1 && sum != 4);
+					} while (sum != 1 && sum != UNHAPPYLOOP);
 
 					if (sum == 1) {
 						printf("%d ", i);
@@ -172,19 +176,19 @@ int main() {
 				
 				printf("Enter maximum number for the festival:\n");
 				scanf("%d", &max);
-				while (max <= 0) {
+				while (max <= ZERO) {
 					printf("Only positive maximum number is allowed, please try again:\n");
 					scanf("%d", &max);
 				}
 
 				for (int i = 1; i <= max; i++ ) {
-					if (i % cheer == 0 && i % smile == 0){
+					if (i % cheer == ZERO && i % smile == ZERO){
 						printf("Festival!\n");
 					}
-					else if (i % smile == 0) {
+					else if (i % smile == ZERO) {
 						printf("Smile!\n");
 					}
-					else if (i % cheer == 0) {
+					else if (i % cheer == ZERO) {
 						printf("Cheer!\n");
 					}
 					else {
